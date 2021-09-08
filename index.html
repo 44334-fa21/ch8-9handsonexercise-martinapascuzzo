@@ -1,13 +1,139 @@
 <!DOCTYPE html> 
 <html lang="en"> 
 	<head> 
-		<title>LASTNAME Chapter8-9HandsOnExercise</title> 
+		<title>PASCUZZO Chapter8-9HandsOnExercise</title> 
 		<meta charset="utf-8"> 
 		<style>
-		
+			table {margin: auto;
+			border: 5px solid #000;
+			border-spacing: 0;
+			}
+			td, th {padding: 0.5em;
+					border: .5px solid #000;
+			}
+			#wrapper { display:grid;
+					grid-template-columns: auto auto auto;
+					grid-template-rows: auto auto auto auto;
+			}
+			#musicinfo {grid-column: 1/2;}
+			#favband {grid-column: 2/3;}
+			#favGenre {grid-column: 3/4;}
+			
+
+			#myLyrics {
+				margin-top: 30px;
+			}
+
+			input[type="radio"], input[type="checkbox"] { display: inline;
+			}
+
+			form {padding-top: 30px;}
+
+		@media only screen and (max-width: 768px) {
+			#musicinfo {grid-column: 1/4;
+						grid-row: 1/2;
+			}
+			#favband {grid-column: 1/4;
+					grid-row: 2/3;	
+			}
+			#favGenre {grid-column: 1/4;
+					grid-row: 3/4;
+			}
+			#final {
+				grid-column:1/4;
+				grid-row: 4/5;
+			}
+		}
 		</style>
 	</head> 
 <body> 
+	<table>
+		<caption>My favorite movie</caption>
+		
+		<tbody>
+			<tr>
+				<th id="title">Title of movie</th>
+				<th id="title1">Interstellar</th>
+			</tr>
+			<tr>
+				<th id="director">Director or producer</th>
+				<th id="director1">Christopher Nolan</th>
+			</tr>
+			<tr>
+				<th id="actor">Leading actor</th>
+				<th id="actor1">Matthew McConaughey</th>
+			</tr>
+			<tr>
+				<th id="actress">Leading actress</th>
+				<th id="actress1">Anne Hathaway</th>
+			</tr>
+			<tr>
+				<th id="rating">Rating (G,PG, PG-13, etc.)</th>
+				<th id="rating1">PG-13</th>
+			</tr>
+			<tr>
+				<th id="description">Description</th>
+				<th id="description1">Earth's future has been riddled by disasters, famines, and droughts. There is only one way to ensure mankind's survival: Interstellar travel. A newly discovered wormhole in the far reaches of our solar system allows a team of astronauts to go where no man has gone before, a planet that may have the right environment to sustain human life.</th>
+			</tr>
+			<tr>
+				<th id="review">Reviews</th>
+				<th id="review1"><a href="https://www.rottentomatoes.com/m/interstellar_2014/reviews?type=top_critics">Read reviews</a></th>
+			</tr>
+		</tbody>
+	</table>
 
+	<form method="POST" action="http://webdevbasics.net/scripts/demo.php">
+		<div id="wrapper">
+			<fieldset id="musicinfo">
+				<legend>Some musical information:</legend>
+				<!--Name-->
+				<label for="myName">*Name:</label>
+				<input type="text" name="myName" id="myName" required="required" placeholder="Your first and last name";>
+				<!--Email-->
+				<label for="myEmail">*Email:</label>
+           		<input type="text" name="myEmail" id="myEmail" required="required" 
+           		placeholder="Your email">
+			    <br>
+				<!--Lyrics/Comments-->
+				<label for="myLyrics">Include your favorite lyrics:</label>
+				<textarea name="myLyrics" id="myLyrics" rows="3" cols="60"></textarea>
+			</fieldset>		
+			<fieldset id="favband">
+				<legend>Favorite band:</legend>
+				<!--Radio buttons-->
+				Select your favorite band<br>
+				<input type="radio" name="myBand" id="b1" value="Twenty-One Pilots">
+				Twenty-One Pilots <br>
+				<input type="radio" name="myBand" id="b2" value="Red Hot Chilli Peppers">
+				Red Hot Chilli Peppers <br>
+				<input type="radio" name="myBand" id="b3" value="Zac Brown Band">
+				Zac Brown Band <br>
+			</fieldset>		
+			<fieldset id="favGenre">
+				<legend>Favorite genre:</legend>
+				<!--Checkbox-->
+				Select your most listened genres <br>
+				<input type="checkbox" name="myGenre" id="rock" value="rock">
+				Rock <br>
+				<input type="checkbox" name="myGenre" id="pop" value="pop">
+				Pop <br>
+				<input type="checkbox" name="myGenre" id="country" value="country">
+				Country <br>
+				<input type="checkbox" name="myGenre" id="EDM" value="EDM">
+				EDM <br>
+				<!--Select Box-->
+				<p>How often do you listen to music?</p>
+				<select size="3" name="consistency" id="consistency">
+					<option value="Seldom">Seldom</option>
+					<option value="Sometimes">Sometimes</option>
+					<option value="Often">Often</option>
+					<option value="Always">Always</option>
+				</select>
+			</fieldset id="final">
+				<input id="mySubmit" type="submit" value="Submit">
+				<input id="myReset" type="reset" value="Reset">
+			</fieldset>
+		</div>
+	</form>
 </body> 
-</html> 
+</html>
